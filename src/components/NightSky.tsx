@@ -1,15 +1,21 @@
 import { useMemo } from "react";
 
+/** Deterministic pseudo-random so server and client render identically. */
+function rand(seed: number) {
+  const x = Math.sin(seed * 12.9898) * 43758.5453;
+  return x - Math.floor(x);
+}
+
 /** Decorative animated night sky: stars, drifting lanterns, moon glow. */
 export function NightSky({ lanterns = 10, stars = 70 }: { lanterns?: number; stars?: number }) {
   const starField = useMemo(
     () =>
       Array.from({ length: stars }, (_, i) => ({
         id: i,
-        left: Math.random() * 100,
-        top: Math.random() * 100,
-        size: Math.random() * 2 + 1,
-        delay: Math.random() * 5,
+        left: rand(i + 1) * 100,
+        top: rand(i + 101) * 100,
+        size: rand(i + 201) * 2 + 1,
+        delay: rand(i + 301) * 5,
       })),
     [stars],
   );
@@ -18,10 +24,10 @@ export function NightSky({ lanterns = 10, stars = 70 }: { lanterns?: number; sta
     () =>
       Array.from({ length: lanterns }, (_, i) => ({
         id: i,
-        left: Math.random() * 96,
-        size: Math.random() * 10 + 8,
-        duration: Math.random() * 20 + 26,
-        delay: Math.random() * 24,
+        left: rand(i + 401) * 96,
+        size: rand(i + 501) * 10 + 8,
+        duration: rand(i + 601) * 20 + 26,
+        delay: rand(i + 701) * 24,
       })),
     [lanterns],
   );
