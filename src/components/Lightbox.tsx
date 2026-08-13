@@ -34,11 +34,13 @@ export function Lightbox({
 
   if (!item) return null;
 
+  const isVideo = item.type === "video" || item.src.endsWith(".mp4");
+
   return (
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="Gallery image viewer"
+      aria-label="Gallery media viewer"
       className="fixed inset-0 z-[80] flex flex-col bg-background/95 backdrop-blur-md"
       onTouchStart={(e) => {
         touchX.current = e.touches[0]?.clientX ?? null;
@@ -58,26 +60,37 @@ export function Lightbox({
           type="button"
           onClick={onClose}
           aria-label="Close viewer"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gold/40 text-gold"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gold/40 text-gold hover:bg-gold/10 transition-colors"
         >
           <X className="h-5 w-5" />
         </button>
       </div>
 
       <div className="flex min-h-0 flex-1 items-center justify-center px-3">
-        <img
-          src={item.src}
-          alt={item.alt}
-          className="max-h-full max-w-full rounded-2xl border border-border object-contain"
-        />
+        {isVideo ? (
+          <video
+            key={item.src}
+            src={item.src}
+            controls
+            autoPlay
+            playsInline
+            className="max-h-full max-w-full rounded-2xl border border-border object-contain shadow-2xl"
+          />
+        ) : (
+          <img
+            src={item.src}
+            alt={item.alt}
+            className="max-h-full max-w-full rounded-2xl border border-border object-contain shadow-2xl"
+          />
+        )}
       </div>
 
       <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 px-4 py-4">
         <button
           type="button"
           onClick={() => go(-1)}
-          aria-label="Previous image"
-          className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-gold/40 text-gold"
+          aria-label="Previous item"
+          className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-gold/40 text-gold hover:bg-gold/10 transition-colors"
         >
           <ChevronLeft className="h-5 w-5" />
         </button>
@@ -85,8 +98,8 @@ export function Lightbox({
         <button
           type="button"
           onClick={() => go(1)}
-          aria-label="Next image"
-          className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-gold/40 text-gold"
+          aria-label="Next item"
+          className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-gold/40 text-gold hover:bg-gold/10 transition-colors"
         >
           <ChevronRight className="h-5 w-5" />
         </button>

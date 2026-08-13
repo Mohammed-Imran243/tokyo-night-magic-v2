@@ -8,27 +8,40 @@ export function Hero() {
   const navigate = useNavigate();
 
   return (
-    <section className="relative flex min-h-[100svh] w-full flex-col justify-center overflow-hidden pt-24 pb-12">
-      <NightSky lanterns={12} stars={90} />
+    <section className="relative flex min-h-[100svh] w-full flex-col justify-center overflow-hidden pt-24 pb-16 lg:pt-20 lg:pb-20">
+      {/* ─── 1. New Free Fire Hero Background (Full Viewport Cover) ─────── */}
+      <div 
+        className="pointer-events-none absolute inset-0 z-0 bg-cover bg-no-repeat transition-all duration-500 bg-[65%_center] sm:bg-[70%_center] lg:bg-[68%_center]"
+        style={{ backgroundImage: `url(${site.hero.characterImage})` }}
+      >
+        {/* Desktop left-edge subtle gradient to ensure text readability against the dark part */}
+        <div className="absolute inset-0 hidden bg-gradient-to-r from-background/50 via-background/10 to-transparent lg:block lg:w-[40%]" />
 
-      {/* Character art: background layer on desktop, contained card on mobile */}
-      <img
-        src={site.hero.characterImage}
-        alt={site.hero.characterAlt}
-        width={1024}
-        height={1408}
-        className="pointer-events-none absolute inset-y-0 right-0 hidden h-full w-1/2 object-cover object-top opacity-70 [mask-image:linear-gradient(to_left,black_35%,transparent)] lg:block"
-      />
+        {/* Mobile/Tablet readability gradient (kept minimal) */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/10 to-background/80 lg:hidden" />
 
-      <div className="relative mx-auto grid w-full max-w-6xl gap-8 px-4 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)] lg:items-center">
-        <div className="animate-rise">
+        {/* Top edge subtle blend */}
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background to-transparent" />
+
+        {/* Bottom edge smooth transition */}
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent" />
+      </div>
+
+      {/* ─── 2. Floating Lantern Effects (Reduced star specks for clean background) ─ */}
+      <NightSky lanterns={8} stars={12} />
+
+      {/* ─── 3. Existing Hero Layout & Content (Unchanged) ──────────── */}
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-4 sm:px-6">
+        <div className="max-w-xl animate-rise">
           <p className="font-display text-xl italic text-violet-soft sm:text-2xl">
             {site.hero.kicker}
           </p>
+
           <h1 className="mt-1 font-display text-6xl font-semibold leading-none tracking-tight text-foreground sm:text-7xl lg:text-8xl">
             <span className="gold-text">{site.hero.title}</span>{" "}
-            <span className="align-middle text-3xl">👑</span>
+            <span className="align-middle text-3xl sm:text-4xl">👑</span>
           </h1>
+
           <p className="mt-4 max-w-md text-pretty text-base text-muted-foreground sm:text-lg">
             {site.hero.subtitle.map((line) => (
               <span key={line} className="block">
@@ -51,6 +64,7 @@ export function Hero() {
             >
               {site.hero.primaryCta}
             </GoldButton>
+
             <GoldButton
               variant="outline"
               fullWidth
@@ -59,19 +73,6 @@ export function Hero() {
             >
               {site.hero.secondaryCta}
             </GoldButton>
-          </div>
-        </div>
-
-        {/* Mobile / tablet framed portrait — never overlaps the text */}
-        <div className="relative mx-auto w-full max-w-sm lg:hidden">
-          <div className="glass-panel overflow-hidden rounded-3xl p-1.5">
-            <img
-              src={site.hero.characterImage}
-              alt={site.hero.characterAlt}
-              width={1024}
-              height={1408}
-              className="h-64 w-full rounded-[1.25rem] object-cover object-top sm:h-80"
-            />
           </div>
         </div>
       </div>

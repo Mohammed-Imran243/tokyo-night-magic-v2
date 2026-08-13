@@ -1,8 +1,8 @@
 export const letter = {
-  title: "A Letter From Levi Father ✒️",
+  title: "A Letter From Levi ✒️",
   ctaLabel: "Read Full Letter 💌",
   greeting: "Dear Tokyo,",
-  signature: "— Levi Father",
+  signature: "— Levi",
   preview: [
     "Another year has passed, and I just wanted to thank the universe for giving me a person like you.",
     "You somehow make ordinary moments feel special.",

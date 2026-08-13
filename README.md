@@ -204,7 +204,7 @@ Create a beautiful parchment-style section.
 
 Title:
 
-A Letter From Levi Father ✒️
+A Letter FromLevi ✒️
 
 Display a short preview.
 
@@ -220,7 +220,7 @@ Keep laughing, keep shining, and never change who you are.
 
 Happy Birthday, Tokyo. 💜
 
-— Levi Father"
+—Levi"
 
 Button:
 
@@ -401,7 +401,7 @@ Create an elegant night-sky footer.
 
 Text:
 
-Made with ❤️ by Levi Father
+Made with ❤️ byLevi
 
 For Tokyo, today, tomorrow and always. ✨
 

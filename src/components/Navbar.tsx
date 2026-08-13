@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, Feather } from "lucide-react";
 import { navLinks, site } from "@/data/site";
@@ -7,6 +7,12 @@ import { cn } from "@/lib/utils";
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  
+  // Always close the mobile menu when the route/hash changes
+  const location = useRouterState({ select: (s) => s.location });
+  useEffect(() => {
+    setOpen(false);
+  }, [location.pathname, location.hash]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);

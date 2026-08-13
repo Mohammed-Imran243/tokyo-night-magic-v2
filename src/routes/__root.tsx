@@ -13,7 +13,6 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { MusicPlayer } from "@/components/MusicPlayer";
 
 function NotFoundComponent() {
   return (
@@ -80,7 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "author", content: "Levi Father" },
+      { name: "author", content: "Levi" },
       { name: "theme-color", content: "#140f26" },
     ],
     links: [
@@ -126,7 +125,6 @@ function RootComponent() {
           <Outlet />
         </main>
         <Footer />
-        <MusicPlayer />
       </div>
     </QueryClientProvider>
   );

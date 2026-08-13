@@ -1,13 +1,13 @@
-import heroImage from "@/assets/tokyo-hero.jpg";
+import heroImage from "@/assets/hero-bg-attached.jpg";
 
 /**
  * Global site content. Edit anything here — no JSX changes needed.
  */
 export const site = {
   name: "Tokyo",
-  author: "Levi Father",
+  author: "Levi",
   /** Birthday target date for the countdown (ISO string, local time). */
-  birthday: "2027-05-04T00:00:00",
+  birthday: "2026-09-18T00:00:00",
   hero: {
     kicker: "Happy Birthday",
     title: "Tokyo",
@@ -27,24 +27,24 @@ export const site = {
       {
         id: "rusher",
         title: "Our Rusher ⚡",
-        body: "Fearless, stubborn and unstoppable. You rush into everything like there's no tomorrow, breaking barriers and taking down every challenge like a true beast.",
+        body: "Fearless, stubborn and unstoppable bot uh. You rush into everything like there's no tomorrow, breaking barriers and taking down every challenge like a true beast then ended up being knock 😂.",
       },
       {
         id: "supporter",
         title: "Our Supporter 💜",
-        body: "You've got my back, always. Healing, covering, and believing in us even when things look tough. The real MVP in every match and in life.",
+        body: "You've got my back, always. Healing, covering, and taking my kills(OC kills 🤭) but the same time you believe in us even when things look tough. The real MVP in every match and in life its you.",
       },
     ],
   },
   footer: {
     lines: [
-      "Made with ❤️ by Levi Father",
+      "Made with ❤️ by Levi",
       "For Tokyo, today, tomorrow and always. ✨",
     ],
     socials: [
-      { id: "instagram", label: "Instagram", href: "https://instagram.com" },
-      { id: "youtube", label: "YouTube", href: "https://youtube.com" },
-      { id: "spotify", label: "Spotify", href: "https://spotify.com" },
+      { id: "instagram", label: "Instagram", href: "https://www.instagram.com/__.rahiell__/" },
+      // { id: "youtube", label: "YouTube", href: "https://youtube.com" },
+      { id: "spotify", label: "Spotify", href: "https://open.spotify.com/playlist/1ekWDDHtIbUisXHq0tIlii" },
     ],
   },
 } as const;

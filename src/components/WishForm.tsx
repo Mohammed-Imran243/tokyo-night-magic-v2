@@ -2,25 +2,13 @@ import { useState, type FormEvent } from "react";
 import { Sparkles } from "lucide-react";
 import { GoldButton } from "./GoldButton";
 
-export type WishInput = { name: string; message: string; photo?: string };
+export type WishInput = { name: string; message: string };
 
 export function WishForm({ onSubmit }: { onSubmit: (input: WishInput) => void }) {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
-  const [photo, setPhoto] = useState<string | undefined>(undefined);
   const [error, setError] = useState<string | null>(null);
   const [done, setDone] = useState(false);
-
-  const handleFile = (file: File | undefined) => {
-    if (!file) return;
-    if (file.size > 2_000_000) {
-      setError("Please pick an image under 2MB.");
-      return;
-    }
-    const reader = new FileReader();
-    reader.onload = () => setPhoto(String(reader.result));
-    reader.readAsDataURL(file);
-  };
 
   const submit = (e: FormEvent) => {
     e.preventDefault();
@@ -32,10 +20,9 @@ export function WishForm({ onSubmit }: { onSubmit: (input: WishInput) => void })
     if (m.length > 500) return setError("Wish must be under 500 characters.");
 
     setError(null);
-    onSubmit(photo ? { name: n, message: m, photo } : { name: n, message: m });
+    onSubmit({ name: n, message: m });
     setName("");
     setMessage("");
-    setPhoto(undefined);
     setDone(true);
     window.setTimeout(() => setDone(false), 4000);
   };
@@ -72,20 +59,6 @@ export function WishForm({ onSubmit }: { onSubmit: (input: WishInput) => void })
             placeholder="Write your wish here..."
           />
         </label>
-
-        <label className="grid gap-1.5">
-          <span className="text-xs uppercase tracking-[0.16em] text-gold-soft">Add a Photo (optional)</span>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={(e) => handleFile(e.target.files?.[0])}
-            className="w-full rounded-2xl border border-input bg-secondary/40 px-4 py-3 text-xs text-muted-foreground file:mr-3 file:rounded-full file:border-0 file:bg-accent file:px-3 file:py-1.5 file:text-xs file:text-accent-foreground"
-          />
-        </label>
-
-        {photo ? (
-          <img src={photo} alt="Your upload preview" className="h-20 w-20 rounded-2xl border border-gold/40 object-cover" />
-        ) : null}
 
         {error ? <p className="text-sm text-destructive">{error}</p> : null}
 

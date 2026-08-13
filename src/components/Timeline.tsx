@@ -14,8 +14,7 @@ export function Timeline() {
               {m.emoji}
             </span>
             <div className="glass-panel rounded-2xl p-4">
-              <p className="text-xs uppercase tracking-[0.18em] text-gold-soft">{m.date}</p>
-              <h3 className="mt-1 font-display text-xl text-foreground">{m.title}</h3>
+              <h3 className="font-display text-xl text-foreground">{m.title}</h3>
               <p className="mt-1 text-sm text-muted-foreground">{m.caption}</p>
             </div>
           </li>
@@ -32,8 +31,7 @@ export function Timeline() {
                 <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-gold/50 bg-card text-xl shadow-[var(--shadow-glow)]">
                   {m.emoji}
                 </span>
-                <p className="mt-4 text-[0.7rem] uppercase tracking-[0.18em] text-gold-soft">{m.date}</p>
-                <h3 className="mt-1 font-display text-lg text-foreground">{m.title}</h3>
+                <h3 className="mt-4 font-display text-lg text-foreground">{m.title}</h3>
                 <p className="mt-1 text-sm text-muted-foreground">{m.caption}</p>
               </li>
             ))}
