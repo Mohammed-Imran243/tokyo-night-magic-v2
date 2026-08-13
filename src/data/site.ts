@@ -1,3 +1,5 @@
+import heroImage from "@/assets/tokyo-hero.jpg";
+
 /**
  * Global site content. Edit anything here — no JSX changes needed.
  */
@@ -16,7 +18,7 @@ export const site = {
     primaryCta: "Enter Tokyo's World ✨",
     secondaryCta: "Leave a Birthday Wish 💌",
     /** Replace this file to swap the character art. */
-    characterImage: "/media/tokyo-character.jpg",
+    characterImage: heroImage,
     characterAlt: "Illustration of Tokyo under a lantern-lit night sky",
   },
   about: {
