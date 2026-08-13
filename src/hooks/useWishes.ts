@@ -46,7 +46,7 @@ export function useWishes() {
       id: `local-${Date.now()}`,
       name: input.name.trim(),
       message: input.message.trim(),
-      photo: input.photo,
+      ...(input.photo ? { photo: input.photo } : {}),
       date: new Date().toISOString().slice(0, 10),
       likes: 0,
     };
