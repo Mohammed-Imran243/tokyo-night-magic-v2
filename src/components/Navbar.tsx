@@ -40,7 +40,7 @@ export function Navbar() {
             <li key={l.label}>
               <Link
                 to={l.to}
-                hash={l.hash}
+                {...(l.hash ? { hash: l.hash } : {})}
                 activeOptions={{ exact: true }}
                 className="text-sm text-muted-foreground transition-colors hover:text-gold"
                 activeProps={{ className: "text-gold" }}
@@ -97,7 +97,7 @@ export function Navbar() {
               <li key={l.label}>
                 <Link
                   to={l.to}
-                  hash={l.hash}
+                  {...(l.hash ? { hash: l.hash } : {})}
                   onClick={() => setOpen(false)}
                   className="flex min-h-12 items-center rounded-2xl border border-border/60 bg-secondary/40 px-4 text-base text-foreground active:scale-[0.99]"
                 >
