@@ -12,10 +12,10 @@ export function NightSky({ lanterns = 10, stars = 70 }: { lanterns?: number; sta
     () =>
       Array.from({ length: stars }, (_, i) => ({
         id: i,
-        left: rand(i + 1) * 100,
-        top: rand(i + 101) * 100,
-        size: rand(i + 201) * 2 + 1,
-        delay: rand(i + 301) * 5,
+        left: (rand(i + 1) * 100).toFixed(3),
+        top: (rand(i + 101) * 100).toFixed(3),
+        size: (rand(i + 201) * 2 + 1).toFixed(2),
+        delay: (rand(i + 301) * 5).toFixed(2),
       })),
     [stars],
   );
@@ -24,10 +24,10 @@ export function NightSky({ lanterns = 10, stars = 70 }: { lanterns?: number; sta
     () =>
       Array.from({ length: lanterns }, (_, i) => ({
         id: i,
-        left: rand(i + 401) * 96,
-        size: rand(i + 501) * 10 + 8,
-        duration: rand(i + 601) * 20 + 26,
-        delay: rand(i + 701) * 24,
+        left: (rand(i + 401) * 96).toFixed(3),
+        size: (rand(i + 501) * 10 + 8).toFixed(2),
+        duration: (rand(i + 601) * 20 + 26).toFixed(2),
+        delay: (rand(i + 701) * 24).toFixed(2),
       })),
     [lanterns],
   );
@@ -42,8 +42,8 @@ export function NightSky({ lanterns = 10, stars = 70 }: { lanterns?: number; sta
           style={{
             left: `${s.left}%`,
             top: `${s.top}%`,
-            width: s.size,
-            height: s.size,
+            width: `${s.size}px`,
+            height: `${s.size}px`,
             animationDelay: `${s.delay}s`,
           }}
         />
@@ -54,8 +54,8 @@ export function NightSky({ lanterns = 10, stars = 70 }: { lanterns?: number; sta
           className="absolute bottom-0 rounded-[40%_40%_45%_45%] bg-gold/70 blur-[1px] animate-drift"
           style={{
             left: `${l.left}%`,
-            width: l.size,
-            height: l.size * 1.3,
+            width: `${l.size}px`,
+            height: `${Number(l.size) * 1.3}px`,
             animationDuration: `${l.duration}s`,
             animationDelay: `${l.delay}s`,
             boxShadow: "0 0 18px 4px var(--color-gold)",
