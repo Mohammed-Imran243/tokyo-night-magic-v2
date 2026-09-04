@@ -1,4 +1,4 @@
-import heroImage from "@/assets/hero-bg-attached.jpg";
+import heroImage from "@/assets/hero-bg-attached@3x.jpg";
 
 /**
  * Global site content. Edit anything here — no JSX changes needed.
