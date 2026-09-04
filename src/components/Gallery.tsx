@@ -48,8 +48,8 @@ export function Gallery({ limit }: { limit?: number }) {
               {isVideo ? (
                 <div className="relative flex h-full w-full items-center justify-center bg-gradient-to-br from-midnight via-card to-background">
                   <video
-                    src={item.src}
-                    preload="none"
+                    src={item.src + '#t=0.1'}
+                    preload="metadata"
                     muted
                     playsInline
                     className="h-full w-full object-cover opacity-60 transition-transform duration-500 group-hover:scale-105 group-hover:opacity-80"
