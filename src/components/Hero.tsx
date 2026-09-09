@@ -17,8 +17,8 @@ export function Hero() {
         {/* Desktop left-edge subtle gradient to ensure text readability against the dark part */}
         <div className="absolute inset-0 hidden bg-gradient-to-r from-background/50 via-background/10 to-transparent lg:block lg:w-[40%]" />
 
-        {/* Mobile/Tablet readability gradient (kept minimal) */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/10 to-background/80 lg:hidden" />
+        {/* Mobile/Tablet readability gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/30 to-background/85 lg:hidden" />
 
         {/* Top edge subtle blend */}
         <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background to-transparent" />
@@ -33,16 +33,16 @@ export function Hero() {
       {/* ─── 3. Existing Hero Layout & Content (Unchanged) ──────────── */}
       <div className="relative z-10 mx-auto w-full max-w-6xl px-4 sm:px-6">
         <div className="max-w-xl animate-rise">
-          <p className="font-display text-xl italic text-violet-soft sm:text-2xl">
+          <p className="font-display text-xl italic text-amber-200 sm:text-2xl drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]">
             {site.hero.kicker}
           </p>
 
-          <h1 className="mt-1 font-display text-6xl font-semibold leading-none tracking-tight text-foreground sm:text-7xl lg:text-8xl">
+          <h1 className="mt-1 font-display text-6xl font-semibold leading-none tracking-tight text-foreground sm:text-7xl lg:text-8xl drop-shadow-[0_4px_12px_rgba(0,0,0,0.95)]">
             <span className="gold-text">{site.hero.title}</span>{" "}
             <span className="align-middle text-3xl sm:text-4xl">👑</span>
           </h1>
 
-          <p className="mt-4 max-w-md text-pretty text-base text-muted-foreground sm:text-lg">
+          <p className="mt-4 max-w-md text-pretty text-base font-semibold text-white sm:text-lg drop-shadow-[0_2px_8px_rgba(0,0,0,0.98)]">
             {site.hero.subtitle.map((line) => (
               <span key={line} className="block">
                 {line}
