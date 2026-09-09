@@ -35,6 +35,7 @@ export function useWishes() {
       queryClient.setQueryData<Wish[]>(["wishes"], (old) =>
         old ? [newWish, ...old] : [newWish],
       );
+      queryClient.invalidateQueries({ queryKey: ["wishes"] });
     },
   });
 
@@ -56,6 +57,7 @@ export function useWishes() {
           ? old.map((w) => (w.id === result.id ? { ...w, likes: result.likes } : w))
           : [],
       );
+      queryClient.invalidateQueries({ queryKey: ["wishes"] });
     },
   });
 

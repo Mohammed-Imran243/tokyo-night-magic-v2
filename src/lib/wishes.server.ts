@@ -1,4 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
+import { setResponseHeader } from "@tanstack/react-start/server";
 import { getPool, ensureTableExists } from "./db";
 import type { Wish } from "@/data/wishes";
 
@@ -15,6 +16,10 @@ interface WishRow {
 export const getWishes = createServerFn({ method: "GET" }).handler(
   async (): Promise<Wish[]> => {
     try {
+      setResponseHeader(
+        "Cache-Control",
+        "no-store, no-cache, must-revalidate, proxy-revalidate",
+      );
       await ensureTableExists();
       const pool = getPool();
       const [rows] = await pool.query<mysql2Rows>(
